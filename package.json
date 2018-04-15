@@ -1,0 +1,23 @@
+{
+  "name": "webpack-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.8.1",
+    "webpack": "3.10.0"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.106",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.5"
+  }
+}
