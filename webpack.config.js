@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     /*entry 设置入口，一个入口打包出一个文件，入口文件的路径可以用相对路径，也可以用绝度路径*/
     app: [resolve('jsapp.js'), './src/tsapp.ts'], /*入口的文件可以用数组*/
+    cssapp: './src/cssapp.js',
     pageA: './src/pageA.js', /*入口的文件可以用字符串*/
     pageB: ['./src/pageB.js'],
     vendor: ['lodash', 'jquery']  /*vendor 用来打包第三方库*/
@@ -31,11 +32,26 @@ module.exports = {
         exclude: [
           path.resolve(__dirname, 'node_modules')
         ]
-      }, {
+      },
+      {
         test: /\.ts(x?)$/,
         use: {
           loader: 'ts-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              // insertInto: '#app', /*插入到哪个位置*/
+              singleton: true, /*是否合并成一个style标签*/
+              transform: './css.transform.js' /*用的不多，对css做一些js逻辑处理*/
+            }
+          },
+          { loader: 'css-loader' }
+        ]
       }
     ]
   },
